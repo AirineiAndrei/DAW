@@ -1,5 +1,6 @@
 using DAL.Data;
 using Microsoft.EntityFrameworkCore;
+using Proiect_DAW.Helpers.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,12 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddRepositories();
+builder.Services.AddServices();
+
+// Auto mapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 

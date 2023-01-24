@@ -2,6 +2,7 @@
 using DAL.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Proiect_DAW.Services.RecipeService;
 
 namespace Proiect_DAW.Controllers
 {
@@ -9,20 +10,17 @@ namespace Proiect_DAW.Controllers
     [ApiController]
     public class RecipeController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IRecipeService _recipeService;
 
-        public RecipeController(AppDbContext context)
+        public RecipeController(IRecipeService recipeService)
         {
-            _context = context;
+            _recipeService= recipeService;
         }
 
-        [HttpGet("recipeById/{id}")]
-        public async Task<IActionResult> GetRecipeById([FromRoute] Guid id)
+        [HttpGet]
+        public async Task<IActionResult> GetAllRecipes()
         {
-            var recipeById = from recipe in _context.Recipes
-                             where recipe.Id == id
-                             select recipe;
-            return Ok(recipeById);
+            return Ok(await _recipeService.GetAllRecipes());
         }
     }
 }
