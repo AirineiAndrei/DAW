@@ -13,7 +13,6 @@ namespace DAL.Models.DTOs
         public string Instructions { get; set; } = string.Empty;
         public TimeSpan CookTime { get; set; } = TimeSpan.Zero;
         public TimeSpan TotalTime { get; set; } = TimeSpan.Zero;
-        public string NutritionInformation { get; set; } = string.Empty;
 
     }
 }

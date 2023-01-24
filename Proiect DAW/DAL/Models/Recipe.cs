@@ -13,6 +13,5 @@ namespace DAL.Models
         public string? Instructions { get; set; }
         public TimeSpan? CookTime { get; set; }
         public TimeSpan? TotalTime { get; set; }
-        public string? NutritionInformation { get; set; }    
     }
 }
