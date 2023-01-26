@@ -13,5 +13,6 @@ namespace DAL.Models
         public string? Instructions { get; set; }
         public TimeSpan? CookTime { get; set; }
         public TimeSpan? TotalTime { get; set; }
+        public virtual RecipeVideo Video { get; set; }
     }
 }
