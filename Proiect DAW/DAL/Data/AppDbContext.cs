@@ -7,6 +7,7 @@ namespace DAL.Data
     {
         public DbSet<Recipe> Recipes { get; set; }
         public DbSet<RecipeVideo> RecipeVideos { get; set; }
+        public DbSet<Comment> Comments { get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -23,6 +24,14 @@ namespace DAL.Data
                     entity.HasOne(x => x.Recipe)
                     .WithOne(x => x.Video)
                     .HasForeignKey<RecipeVideo>(x => x.RecipeId);
+                }
+                );
+            modelBuilder.Entity<Comment>(
+                entity =>
+                {
+                    entity.HasOne(x => x.Recipe)
+                    .WithMany(x => x.Comments)
+                    .HasForeignKey(x => x.RecipeId);
                 }
                 );
         }

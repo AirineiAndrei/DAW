@@ -14,5 +14,6 @@ namespace DAL.Models
         public TimeSpan? CookTime { get; set; }
         public TimeSpan? TotalTime { get; set; }
         public virtual RecipeVideo Video { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }
