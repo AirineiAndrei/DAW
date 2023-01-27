@@ -12,7 +12,7 @@ namespace Proiect_DAW.Controllers
 
         public CommentController(AppDbContext context) { _context = context; }
         [HttpGet]
-        public async Task<IActionResult> GetVideos()
+        public async Task<IActionResult> Get()
         {
             //var ans = from recipe in _context.Recipes
             //          join com in _context.Comments
