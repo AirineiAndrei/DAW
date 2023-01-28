@@ -15,8 +15,8 @@ namespace Proiect_DAW.Controllers
         public async Task<IActionResult> Get()
         {
 
-            var ans = from ceva in _context.Ingredients
-                      select ceva;
+            var ans = from rela in _context.IngredientInRecipes
+                      select new {rela.Recipe,rela.Ingredient}; 
             return Ok(ans);
         }
     }
