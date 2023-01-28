@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.Repositories.IngredientRepository.cs
+namespace DAL.Repositories.IngredientRepository
 {
     public class IngredientRepository : GenericRepository<Ingredient> , IIngredientRepository
     {

@@ -1,8 +1,8 @@
 ﻿using DAL.Repositories.RecipeRepository;
 using DAL.Repositories.IngredientRepository;
 using Proiect_DAW.Services.RecipeService;
-using DAL.Repositories.IngredientRepository.cs;
-using DAL.Repositories.CommentRepository.cs;
+using DAL.Repositories.IngredientRepository;
+using DAL.Repositories.CommentRepository;
 using DAL.Repositories.IngredientInRecipeRepository;
 
 namespace Proiect_DAW.Helpers.Extensions
