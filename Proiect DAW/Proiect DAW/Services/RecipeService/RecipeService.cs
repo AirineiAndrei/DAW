@@ -18,8 +18,7 @@ namespace Proiect_DAW.Services.RecipeService
         public async Task<List<RecipeDTO>> GetAllRecipes()
         {
             var recipes = await _recipeRepository.GetAll();
-            //List<RecipeDTO> result = _mapper.Map<List<RecipeDTO>>(recipes);
-            var result = recipes.Select(x => _mapper.Map<RecipeDTO>(x)).ToList();
+            List<RecipeDTO> result = _mapper.Map<List<RecipeDTO>>(recipes);
 
             return result;
         }

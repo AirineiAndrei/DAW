@@ -9,6 +9,8 @@ namespace Proiect_DAW.Helpers.Mapper
         public MapperProfile() 
         {
             CreateMap<Recipe, RecipeDTO>();
+            CreateMap<Ingredient, IngredientDTO>();
+            CreateMap<Comment, CommentDTO>();
         }
     }
 }
