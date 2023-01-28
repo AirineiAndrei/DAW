@@ -17,7 +17,7 @@ namespace Proiect_DAW.Controllers
             _recipeService= recipeService;
         }
 
-        [HttpGet]
+        [HttpGet("all")]
         public async Task<IActionResult> GetAllRecipes()
         {
             return Ok(await _recipeService.GetAllRecipes());

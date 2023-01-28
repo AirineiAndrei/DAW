@@ -1,6 +1,7 @@
 ﻿using DAL.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Proiect_DAW.Services.IngredientService;
 
 namespace Proiect_DAW.Controllers
 {
@@ -8,16 +9,16 @@ namespace Proiect_DAW.Controllers
     [ApiController]
     public class IngredientController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IIngredientService _ingredientService;
 
-        public IngredientController(AppDbContext context) { _context = context; }
-        [HttpGet]
-        public async Task<IActionResult> Get()
+        public IngredientController(IIngredientService ingredientService) 
         {
-
-            var ans = from rela in _context.IngredientInRecipes
-                      select new {rela.Recipe,rela.Ingredient}; 
-            return Ok(ans);
+            _ingredientService = ingredientService; 
+        }
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllIngredients()
+        {
+            return Ok(await _ingredientService.GetAllIngredients());
         }
     }
 }

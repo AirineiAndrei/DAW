@@ -1,6 +1,7 @@
 ﻿using DAL.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Proiect_DAW.Services.CommentService;
 
 namespace Proiect_DAW.Controllers
 {
@@ -8,23 +9,17 @@ namespace Proiect_DAW.Controllers
     [ApiController]
     public class CommentController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly ICommentService _commentService;
 
-        public CommentController(AppDbContext context) { _context = context; }
-        [HttpGet]
-        public async Task<IActionResult> Get()
+        public CommentController(ICommentService commentService)
         {
-            //var ans = from recipe in _context.Recipes
-            //          join com in _context.Comments
-            //          on recipe equals com.Recipe
-            //          select new
-            //          {
-            //              recipe.Id,
-            //              com
-            //          };
-            var ans = from ceva in _context.Recipes
-                      select ceva.Comments;
-            return Ok(ans);
+            _commentService = commentService;
+        }
+
+        [HttpGet("all")]
+        public async Task<IActionResult> GetAllComments()
+        {
+            return Ok(await _commentService.GetAllComments());
         }
     }
 }
