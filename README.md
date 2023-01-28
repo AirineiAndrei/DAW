@@ -23,6 +23,7 @@ Frontend(4p):
  - [ ] Cel putin 1 directiva. (pe langa cea facuta la laborator) (0.25)
  - [ ] Cel putin 1 pipe 0.25
   - [ ] Register + Login (cu reactive forms) + Implementare Guard (1p)
+  
 Puncte extra: 
  - [ ] Folosire 3 metode care nu au fost folosite la laborator din rxjs (1 pct) (https://rxjs.dev/api) (edited)
 
