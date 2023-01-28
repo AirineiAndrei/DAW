@@ -10,6 +10,7 @@ namespace DAL.Data
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Ingredient> Ingredients { get; set; }
         public DbSet<IngredientInRecipe> IngredientInRecipes { get; set; }
+        public DbSet<User> Users { get; set; }
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -51,7 +52,8 @@ namespace DAL.Data
                     .HasForeignKey(x => x.IngredientId);
                 }
             );
-
+            modelBuilder.Entity<User>();
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
