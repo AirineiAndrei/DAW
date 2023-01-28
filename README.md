@@ -15,7 +15,6 @@ Puncte extra
  - [ ] SMTP cu Sendgrid, SendinBlue etc (1 pct)
  - [ ] Upload fisiere pe S3 (AWS) sau Storage Account (Azure) (1pct)
  - [ ] Auth cu refresh token (1 pct)
- - [ ] Puteti veni voi cu idei dar sa ma intrebati inainte
 
 Frontend(4p):
  - [ ] Cel putin 3 componente. Existenta rutelor(simple + parametru). (1 p)
