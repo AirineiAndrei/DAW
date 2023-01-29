@@ -1,6 +1,8 @@
 using DAL.Data;
 using Microsoft.EntityFrameworkCore;
+using Proiect_DAW.Helpers;
 using Proiect_DAW.Helpers.Extensions;
+using Proiect_DAW.Helpers.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +16,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddRepositories();
 builder.Services.AddServices();
+builder.Services.AddUtils();
+
+builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 
 // Auto mapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -31,6 +36,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.UseMiddleware<JwtMiddleware>();
 app.MapControllers();
 
 app.Run();

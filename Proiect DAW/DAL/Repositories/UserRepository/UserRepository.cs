@@ -12,5 +12,9 @@ namespace DAL.Repositories.UserRepository
     public class UserRepository : GenericRepository<User> , IUserRepository
     {
         public UserRepository(AppDbContext context) : base(context) { }
+        public User FindByUsername(string username)
+        {
+            return _table.FirstOrDefault(x => x.Username == username);
+        }
     }
 }

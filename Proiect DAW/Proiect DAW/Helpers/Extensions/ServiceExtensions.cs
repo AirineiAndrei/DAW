@@ -1,13 +1,13 @@
 ﻿using DAL.Repositories.RecipeRepository;
 using DAL.Repositories.IngredientRepository;
 using Proiect_DAW.Services.RecipeService;
-using DAL.Repositories.IngredientRepository;
 using DAL.Repositories.CommentRepository;
 using DAL.Repositories.IngredientInRecipeRepository;
 using Proiect_DAW.Services.IngredientService;
 using Proiect_DAW.Services.CommentService;
 using DAL.Repositories.UserRepository;
 using Proiect_DAW.Services.UserService;
+using Proiect_DAW.Helpers.Jwt;
 
 namespace Proiect_DAW.Helpers.Extensions
 {
@@ -29,6 +29,12 @@ namespace Proiect_DAW.Helpers.Extensions
             services.AddTransient<IIngredientService, IngredientService>();
             services.AddTransient<ICommentService, CommentService>();
             services.AddTransient<IUserService, UserService>();
+
+            return services;
+        }
+        public static IServiceCollection AddUtils(this IServiceCollection services)
+        {
+            services.AddTransient<IJwtUtils, JwtUtils>();
 
             return services;
         }
