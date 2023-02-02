@@ -33,8 +33,8 @@ namespace DAL.Data
                 entity =>
                 {
                     entity.HasOne(x => x.Recipe)
-                    .WithMany(x => x.Comments)
-                    .HasForeignKey(x => x.RecipeId);
+                    .WithMany(x => x.Comments);
+                    //.HasForeignKey(x => x.RecipeId);
                 }
                 );
             modelBuilder.Entity<Ingredient>();

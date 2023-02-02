@@ -12,5 +12,12 @@ namespace DAL.Repositories.IngredientInRecipeRepository
     public class IngredientInRecipeRepository : GenericRepository<IngredientInRecipe> , IIngredientInRecipeRepository
     {
         public IngredientInRecipeRepository(AppDbContext context) : base(context) { }
+        public void DeleteIngredientForRecipe(Recipe recipe)
+        {
+            var toDelete = from elem in _context.IngredientInRecipes
+                           where elem.RecipeId == recipe.Id
+                           select elem;
+            _context.IngredientInRecipes.RemoveRange(toDelete);
+        }
     }
 }

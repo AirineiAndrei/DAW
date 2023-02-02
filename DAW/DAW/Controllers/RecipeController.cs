@@ -22,5 +22,11 @@ namespace DAW.Controllers
         {
             return Ok(await _recipeService.GetAllRecipes());
         }
+        [HttpDelete("{recipeId}")]
+        public async Task<IActionResult> DeleteRecipe([FromRoute] Guid recipeId)
+        {
+            await this._recipeService.DeleteRecipe(recipeId);
+            return Ok(await _recipeService.GetAllRecipes());
+        }
     }
 }

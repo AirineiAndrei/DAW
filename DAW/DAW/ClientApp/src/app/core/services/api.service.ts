@@ -8,8 +8,7 @@ import { Observable } from 'rxjs';
 export class ApiService {
   private apiUrl = "";
 
-  constructor(private readonly httpClient: HttpClient) {
-    var baseUrl = "https://localhost:7139/"; // TO DO ask how this should automatically work
+  constructor(private readonly httpClient: HttpClient, @Inject('BASE_URL') baseUrl: string) {
     this.apiUrl = baseUrl + "api/";
   }
 

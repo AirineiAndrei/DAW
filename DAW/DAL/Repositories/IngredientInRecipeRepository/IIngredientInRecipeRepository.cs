@@ -10,5 +10,6 @@ namespace DAL.Repositories.IngredientInRecipeRepository
 {
     public interface IIngredientInRecipeRepository : IGenericRepository<IngredientInRecipe>
     {
+        void DeleteIngredientForRecipe(Recipe recipe);
     }
 }
