@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 // Components
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { RecipesComponent } from './recipes/recipes.component';
+import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 
 // Modules
 import { MatListModule } from '@angular/material/list';
@@ -13,7 +14,7 @@ import { MatButtonModule, MatCardModule, MatFormFieldModule, MatIconModule, MatI
 
 
 @NgModule({
-  declarations: [AdminDashboardComponent, RecipesComponent, ],
+  declarations: [AdminDashboardComponent, RecipesComponent,AddRecipeComponent ],
   imports: [
     CommonModule,
     MatListModule,

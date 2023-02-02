@@ -6,5 +6,7 @@ namespace DAW.Services.RecipeService
     {
         Task<List<RecipeDTO>> GetAllRecipes();
         public Task DeleteRecipe(Guid recipeId);
+
+        public Task AddRecipe(RecipeDTO newRecipe);
     }
 }

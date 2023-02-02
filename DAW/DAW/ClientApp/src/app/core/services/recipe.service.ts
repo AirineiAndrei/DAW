@@ -16,6 +16,7 @@ export class RecipeService {
   }
 
   addNewRecipe(newrecipe: any): Observable<any> {
+    console.log(newrecipe);
     return this.apiService.post(this.route, newrecipe);
   }
 

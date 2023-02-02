@@ -1,0 +1,16 @@
+<mat-card>
+  <p>Add new Recipe!</p>
+  <form [formGroup]="recipeForm">
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput formControlName="title" />
+    </mat-form-field>
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Instructions</mat-label>
+      <input matInput formControlName="instructions" />
+    </mat-form-field>
+    <br />
+  </form>
+  <br />
+  <button mat-raised-button (click)="checkForm()">Submit</button>

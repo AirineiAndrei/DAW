@@ -9,6 +9,7 @@ namespace DAW.Helpers.Mapper
         public MapperProfile() 
         {
             CreateMap<Recipe, RecipeDTO>();
+            CreateMap<RecipeDTO, Recipe>();
             CreateMap<Ingredient, IngredientDTO>();
             CreateMap<Comment, CommentDTO>();
         }

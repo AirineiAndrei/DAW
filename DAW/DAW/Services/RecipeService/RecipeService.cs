@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using DAL.Models;
 using DAL.Models.DTOs;
 using DAL.Repositories.IngredientInRecipeRepository;
 using DAL.Repositories.RecipeRepository;
@@ -24,6 +25,12 @@ namespace DAW.Services.RecipeService
             List<RecipeDTO> result = _mapper.Map<List<RecipeDTO>>(recipes);
 
             return result;
+        }
+        public async Task AddRecipe(RecipeDTO newRecipe)
+        {
+            var newDbRecipe = _mapper.Map<Recipe>(newRecipe);
+            await _recipeRepository.CreateAsync(newDbRecipe);
+            await _recipeRepository.SaveAsync();
         }
 
         public async Task DeleteRecipe(Guid recipeId)

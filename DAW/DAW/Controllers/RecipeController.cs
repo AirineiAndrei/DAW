@@ -3,6 +3,7 @@ using DAL.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using DAW.Services.RecipeService;
+using DAL.Models.DTOs;
 
 namespace DAW.Controllers
 {
@@ -22,6 +23,14 @@ namespace DAW.Controllers
         {
             return Ok(await _recipeService.GetAllRecipes());
         }
+
+        [HttpPost]
+        public async Task<IActionResult> AddRecipe(RecipeDTO newRecipe)
+        {
+            await _recipeService.AddRecipe(newRecipe);
+            return Ok();
+        }
+
         [HttpDelete("{recipeId}")]
         public async Task<IActionResult> DeleteRecipe([FromRoute] Guid recipeId)
         {
