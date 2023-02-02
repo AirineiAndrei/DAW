@@ -18,5 +18,9 @@ namespace DAL.Repositories.RecipeRepository
         {
             return await _table.Where(x => recipeIds.Contains(x.Id)).ToListAsync();
         }
+        public async Task<List<Recipe>> GetRecipesWithComments()
+        {
+            return await _table.Include(x => x.Comments).ToListAsync();
+        }
     }
 }

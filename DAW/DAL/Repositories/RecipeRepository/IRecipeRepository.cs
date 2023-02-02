@@ -11,5 +11,6 @@ namespace DAL.Repositories.RecipeRepository
     public interface IRecipeRepository : IGenericRepository<Recipe>
     {
         public Task<List<Recipe>> FindRange(List<Guid> recipeIds);
+        public Task<List<Recipe>> GetRecipesWithComments();
     }
 }
