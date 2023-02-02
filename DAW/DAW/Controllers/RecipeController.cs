@@ -17,7 +17,7 @@ namespace DAW.Controllers
             _recipeService= recipeService;
         }
 
-        [HttpGet("all")]
+        [HttpGet]
         public async Task<IActionResult> GetAllRecipes()
         {
             return Ok(await _recipeService.GetAllRecipes());

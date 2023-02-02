@@ -6,6 +6,11 @@ const routes: Routes = [{
   path: 'home',
   component: HomeComponent
 },
+{
+  path: "admin",
+ // canActivate: [AuthGuard],
+  loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule)
+}
 ];
 
 @NgModule({
