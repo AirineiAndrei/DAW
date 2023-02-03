@@ -10,5 +10,6 @@ namespace DAL.Repositories.IngredientRepository
 {
     public interface IIngredientRepository : IGenericRepository<Ingredient>
     {
+        public Task<List<Ingredient>> GetIngredientsForRecipe(Recipe recipe);
     }
 }

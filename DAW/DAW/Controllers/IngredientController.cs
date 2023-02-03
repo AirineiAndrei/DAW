@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using DAW.Services.IngredientService;
+using DAW.Services.RecipeService;
 
 namespace DAW.Controllers
 {
@@ -19,6 +20,11 @@ namespace DAW.Controllers
         public async Task<IActionResult> GetAllIngredients()
         {
             return Ok(await _ingredientService.GetAllIngredients());
+        }
+        [HttpGet("{recipeId}")]
+        public async Task<IActionResult> GetIngredientsForRecipe([FromRoute] Guid recipeId)
+        {
+            return Ok(await _ingredientService.GetIngredientsForRecipe(recipeId));
         }
     }
 }
