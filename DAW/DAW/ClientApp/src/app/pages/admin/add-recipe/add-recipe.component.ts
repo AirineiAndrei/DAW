@@ -11,8 +11,8 @@ export class AddRecipeComponent implements OnInit {
   public recipeForm = this.formBuilder.group({
     title: ['', Validators.required],
     instructions: ['', Validators.required],
-    cooktime: ['', Validators.required],
-    totaltime: ['', Validators.required],
+    // cooktime: ['', Validators.required],
+    // totaltime: ['', Validators.required],
   });
 
   constructor(private readonly formBuilder: FormBuilder, private readonly RecipeService: RecipeService) { }
