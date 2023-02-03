@@ -20,10 +20,6 @@ export class RecipeService {
     return this.apiService.post(this.route, newrecipe);
   }
 
-  addStudentsToRecipe(recipeId: string, studentsIds: Array<string>): Observable<any> {
-    return this.apiService.post(`${this.route}/${recipeId}`, studentsIds);
-  }
-
   deleteRecipe(recipeId: string): Observable<any> {
     return this.apiService.delete(`${this.route}/${recipeId}`);
   }
