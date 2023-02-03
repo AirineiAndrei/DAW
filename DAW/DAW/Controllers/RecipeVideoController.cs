@@ -15,15 +15,13 @@ namespace DAW.Controllers
         [HttpGet]
         public async Task<IActionResult> GetVideos()
         {
-            var Videos = from recipe in _context.Recipes
-                         join video in _context.RecipeVideos
-                         on recipe equals video.Recipe into reci
-                         from vid in reci.DefaultIfEmpty()
-                         select new
-                         {
-                             recipe.Title,
-                             url = vid.VideoUrl,
-                         };
+            var Videos = _context.Recipes.GroupBy(x => x.Title)
+                                         .Select(group => new
+                                         {
+                                             title = group.Key,
+                                             cnt = group.Count()
+                                         });
+                         
             //var Videos = from video in _context.RecipeVideos
             //             where video != null
             //             select video;
