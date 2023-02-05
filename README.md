@@ -8,7 +8,7 @@ Backend (4p) :
  - [x]  Sa se foloseasca repository pattern + Service (1p)
  
 Puncte extra
- - [ ] Unit of work (1 pct)
+ - [x] Unit of work (1 pct)
  - [ ] Specification Pattern (1 pct)
  - [ ] Chat cu SignalR (1 pct)
  - [ ] Autentificare cu Identity (1 pct)
