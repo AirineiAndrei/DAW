@@ -14,8 +14,10 @@ namespace DAW.Helpers.Middleware
 
         public async Task Invoke(HttpContext context, IUserService userService, IJwtUtils jwtUtils)
         {
-            var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
-            var userId = jwtUtils.ValidateJwtToken(token);
+            var headers = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ");
+            Console.WriteLine(headers[1]);
+            var tokenul = headers[1];
+            var userId = jwtUtils.ValidateJwtToken(tokenul);
             if (userId != null)
             {
                 // attach user to context on successful jwt validation

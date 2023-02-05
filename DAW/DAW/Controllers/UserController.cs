@@ -60,7 +60,7 @@ namespace DAW.Controllers
             return Ok();
         }
 
-        [HttpPost("authenticate")]
+        [HttpPost("auth")]
         public async Task<IActionResult> Authentificate(UserRequestDto user)
         {
 
@@ -75,9 +75,9 @@ namespace DAW.Controllers
 
         [Authorization(Role.Admin)]
         [HttpGet("admin")]
-        public IActionResult CheckAdmin()
+        public async Task<IActionResult> CheckAdmin()
         {
-            return Ok("admin");
+            return Ok(await _userService.GetAllUsers());
         }
 
         [Authorization(Role.User)]

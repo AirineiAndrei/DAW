@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using DAW.Services.RecipeService;
 using DAL.Models.DTOs;
+using DAL.Models.Enums;
+using DAW.Helpers.Attributes;
 
 namespace DAW.Controllers
 {
@@ -18,6 +20,7 @@ namespace DAW.Controllers
             _recipeService= recipeService;
         }
 
+        [Authorization(Role.Admin)]
         [HttpGet]
         public async Task<IActionResult> GetAllRecipes()
         {
