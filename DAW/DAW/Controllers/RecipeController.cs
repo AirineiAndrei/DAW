@@ -17,7 +17,7 @@ namespace DAW.Controllers
 
         public RecipeController(IRecipeService recipeService)
         {
-            _recipeService= recipeService;
+            _recipeService = recipeService;
         }
 
         [Authorization(Role.Admin)]
@@ -39,6 +39,12 @@ namespace DAW.Controllers
         {
             await this._recipeService.DeleteRecipe(recipeId);
             return Ok(await _recipeService.GetAllRecipes());
+        }
+        [HttpPut]
+        public async Task<IActionResult> UpdateRecipe(RecipeDTO newRecipe)
+        {
+            await this._recipeService.UpdateRecipe(newRecipe);
+            return Ok();
         }
     }
 }
