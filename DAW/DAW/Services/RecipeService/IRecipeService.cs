@@ -8,5 +8,6 @@ namespace DAW.Services.RecipeService
         public Task DeleteRecipe(Guid recipeId);
 
         public Task AddRecipe(RecipeDTO newRecipe);
+        public Task UpdateRecipe(RecipeDTO newRecipe);
     }
 }

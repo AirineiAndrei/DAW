@@ -32,6 +32,12 @@ namespace DAW.Services.RecipeService
             await _recipeRepository.CreateAsync(newDbRecipe);
             await _recipeRepository.SaveAsync();
         }
+        public async Task UpdateRecipe(RecipeDTO newRecipe)
+        {
+            var DbRecipe = _mapper.Map<Recipe>(newRecipe);
+            _recipeRepository.Update(DbRecipe);
+            await _recipeRepository.SaveAsync();
+        }
 
         public async Task DeleteRecipe(Guid recipeId)
         {
