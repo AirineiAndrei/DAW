@@ -20,7 +20,7 @@ Frontend(4p):
  - [x] Cel putin 3 componente. Existenta rutelor(simple + parametru). (1 p)
  - [x] Cel putin 3 servicii conectate la serverul din .Net . Afisarea de date din servicii in componente.  (1.5p)
  - [ ] Cel putin 1 directiva. (pe langa cea facuta la laborator) (0.25)
- - [ ] Cel putin 1 pipe 0.25
+ - [x] Cel putin 1 pipe 0.25
   - [x] Register + Login (cu reactive forms) + Implementare Guard (1p)
   
 Puncte extra: 
