@@ -8,6 +8,7 @@ using DAW.Services.CommentService;
 using DAL.Repositories.UserRepository;
 using DAW.Services.UserService;
 using DAW.Helpers.Jwt;
+using DAW.Helpers.UnitOfWork;
 
 namespace DAW.Helpers.Extensions
 {
@@ -20,6 +21,12 @@ namespace DAW.Helpers.Extensions
             services.AddTransient<ICommentRepository, CommentRepository>();
             services.AddTransient<IIngredientInRecipeRepository,IngredientInRecipeRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
+
+            return services;
+        }
+        public static IServiceCollection AddUoW(this IServiceCollection services)
+        {
+            services.AddTransient<IUoW, UoW>();
 
             return services;
         }

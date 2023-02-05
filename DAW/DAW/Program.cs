@@ -15,6 +15,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddRepositories();
+builder.Services.AddUoW();
 builder.Services.AddServices();
 builder.Services.AddUtils();
 

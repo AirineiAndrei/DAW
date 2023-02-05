@@ -3,25 +3,24 @@ using DAL.Models;
 using DAL.Models.DTOs;
 using DAL.Repositories.IngredientInRecipeRepository;
 using DAL.Repositories.RecipeRepository;
+using DAW.Helpers.UnitOfWork;
 
 namespace DAW.Services.RecipeService
 {
     public class RecipeService : IRecipeService
     {
-        public IRecipeRepository _recipeRepository;
-        public IIngredientInRecipeRepository _ingredientInRecipeRepository;
+        private readonly IUoW _Uow;
         public IMapper _mapper;
 
-        public RecipeService(IRecipeRepository recipeRepository, IIngredientInRecipeRepository ingredientInRecipeRepository, IMapper mapper)
+        public RecipeService(IMapper mapper,IUoW Uow)
         {
-            _recipeRepository = recipeRepository;
-            _ingredientInRecipeRepository= ingredientInRecipeRepository;
+            _Uow = Uow;
             _mapper = mapper;
         }
 
         public async Task<List<RecipeDTO>> GetAllRecipes()
         {
-            var recipes = await _recipeRepository.GetAll();
+            var recipes = await _Uow.RecipeRepo.GetAll();
             List<RecipeDTO> result = _mapper.Map<List<RecipeDTO>>(recipes);
 
             return result;
@@ -29,23 +28,23 @@ namespace DAW.Services.RecipeService
         public async Task AddRecipe(RecipeDTO newRecipe)
         {
             var newDbRecipe = _mapper.Map<Recipe>(newRecipe);
-            await _recipeRepository.CreateAsync(newDbRecipe);
-            await _recipeRepository.SaveAsync();
+            await _Uow.RecipeRepo.CreateAsync(newDbRecipe);
+            await _Uow.RecipeRepo.SaveAsync();
         }
         public async Task UpdateRecipe(RecipeDTO newRecipe)
         {
             var DbRecipe = _mapper.Map<Recipe>(newRecipe);
-            _recipeRepository.Update(DbRecipe);
-            await _recipeRepository.SaveAsync();
+            _Uow.RecipeRepo.Update(DbRecipe);
+            await _Uow.RecipeRepo.SaveAsync();
         }
 
         public async Task DeleteRecipe(Guid recipeId)
         {
-            var recipeToDelete = await _recipeRepository.FindByIdAsync(recipeId);
+            var recipeToDelete = await _Uow.RecipeRepo.FindByIdAsync(recipeId);
 
-            _ingredientInRecipeRepository.DeleteIngredientForRecipe(recipeToDelete);
-            _recipeRepository.Delete(recipeToDelete);
-            await _recipeRepository.SaveAsync();
+            _Uow.IngredientInRecipeRepo.DeleteIngredientForRecipe(recipeToDelete);
+            _Uow.RecipeRepo.Delete(recipeToDelete);
+            await _Uow.RecipeRepo.SaveAsync();
         }
 
     }
