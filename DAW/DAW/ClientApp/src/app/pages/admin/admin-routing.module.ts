@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
+import { IngredientComponent } from './ingredient/ingredient.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,10 @@ const routes: Routes = [
         component: AddRecipeComponent
       }
     ]
+  },
+  {
+    path: "ingredient/:id",
+    component: IngredientComponent
   }
 ];
 
